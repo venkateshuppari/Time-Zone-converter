@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Time Zone Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="container">
+            <h2>🌍 Interactive Time Zone Converter</h2>
+            
+            <div class="input-group">
+                <label for="datetimeInput">Select Date & Time:</label>
+                <input type="datetime-local" id="datetimeInput">
+            </div>
+            
+            <div class="input-group">
+                <label for="fromZone">From Time Zone:</label>
+                <select id="fromZone">
+                    <option value="UTC">UTC (Coordinated Universal Time)</option>
+                    <option value="America/New_York" selected>New York (EST/EDT)</option>
+                    <option value="Europe/London">London (GMT/BST)</option>
+                    <option value="Asia/Tokyo">Tokyo (JST)</option>
+                    <option value="America/Sao_Paulo">Sao Paulo (BRT/BRST)</option>
+                    <option value="Europe/Paris">Paris (CET/CEST)</option>
+                    <option value="Australia/Sydney">Sydney (AEST/AEDT)</option>
+                    <option value="Asia/Dubai">Dubai (GST)</option>
+                    <option value="Asia/Kolkata">Kolkata (IST)</option>
+                    <option value="Pacific/Honolulu">Honolulu (HST)</option>
+                </select>
+                <div class="timezone-info" id="fromTzInfo"></div>
+            </div>
+            
+            <div class="input-group">
+                <label for="toZone">To Time Zone:</label>
+                <select id="toZone">
+                    <option value="UTC">UTC (Coordinated Universal Time)</option>
+                    <option value="America/New_York">New York (EST/EDT)</option>
+                    <option value="Europe/London" selected>London (GMT/BST)</option>
+                    <option value="Asia/Tokyo">Tokyo (JST)</option>
+                    <option value="America/Sao_Paulo">Sao Paulo (BRT/BRST)</option>
+                    <option value="Europe/Paris">Paris (CET/CEST)</option>
+                    <option value="Australia/Sydney">Sydney (AEST/AEDT)</option>
+                    <option value="Asia/Dubai">Dubai (GST)</option>
+                    <option value="Asia/Kolkata">Kolkata (IST)</option>
+                    <option value="Pacific/Honolulu">Honolulu (HST)</option>
+                </select>
+                <div class="timezone-info" id="toTzInfo"></div>
+            </div>
+            
+            <div class="button-group">
+                <button onclick="convertTime()">Convert Time</button>
+                <button onclick="useCurrentTime()">Use Current Time</button>
+                <button onclick="swapTimeZones()">↔ Swap Zones</button>
+            </div>
+            
+            <div class="loading" id="loadingIndicator">
+                <div class="spinner"></div>
+                <p>Converting time...</p>
+            </div>
+            
+            <h3>Converted Time:</h3>
+            <div id="convertedTime">Select time and zones to convert</div>
+            
+            <div class="time-details" id="timeDetails">
+                <p>Time details will appear here after conversion</p>
+            </div>
+            
+            <div class="current-time" id="currentTime"></div>
+        </div>
+
+        <div class="chat-container">
+            <h2>💬 Time Zone Assistant</h2>
+            <div id="chatbox"></div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Ask me about time zones..." onkeypress="handleKeyPress(event)">
+                <button id="sendBtn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
